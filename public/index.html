@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>Export slack private group history</title>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="modal.js"></script>
+		<script src="slackHelpers.js"></script>
+		<style>
+			body {
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Slack private group history export helper</h1>
+		<p>
+			Please follow the instructions to get the history of private group.
+			<ol>
+				<li>
+					Click
+					<a href="https://api.slack.com/web#authentication" target="_blank"> here </a>
+					to get a new api token
+				</li>
+				<li>
+					Find your slack team and click 'Create token'
+					<br>
+					<img src="1.png">
+				</li>
+				<li>
+					It will probably ask your password. Please enter your password to continue.
+				</li>
+				<li>
+					Copy your token and paste to token field. (It is located under the instructions.)
+					<br>
+					<img src="2.png">
+				</li>
+				<li>
+					Click "Get private groups" button
+				</li>
+				<li>
+					Select the channel
+				</li>
+				<li>
+					Click "Get history" button
+				</li>
+			</ol>
+		</p>
+		<hr>
+		<div>
+			Token:
+			<input type="text" id="token" value=""/>
+		</div>
+		<br>
+		<div>
+			<input type="button" value="Get private groups" onclick="javascript:getList();"/>
+		</div>
+		<br>
+		<div id="groups-div" style="display: none;">
+			Channels:
+			<select id="groups-select">
+
+			</select>
+			<br>
+			<br>
+			<input type="button" value="Get history" onclick="javascript:getHistory();"/>
+		</div>
+		<br>
+		<div id="text-result">
+
+		</div>
+	</body>
+</html>

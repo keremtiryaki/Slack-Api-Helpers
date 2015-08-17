@@ -1,0 +1,13 @@
+{
+	"name": "AWS-Web-Identity-Providers-to-Connect-DynamoDB",
+	"version": "0.0.1",
+	"description": "sample",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"dependencies": {
+		"connect": "3.4.0",
+		"serve-static": "1.10.0"
+	}
+}
