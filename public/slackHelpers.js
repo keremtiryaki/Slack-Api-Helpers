@@ -80,7 +80,7 @@ function getHistory() {
 var messages = [];
 function getAllHistory(token, channel, callback) {
 	messages = [];
-	var date = 1438182048.000078;
+	var date = 0;
 	(function stepByStep() {
 		$.ajax({
 			"url" : "https://slack.com/api/groups.history",
