@@ -80,20 +80,23 @@ function getHistory() {
 var messages = [];
 function getAllHistory(token, channel, callback) {
 	messages = [];
-	var date = 0;
+	var date = null;
 	(function stepByStep() {
+		var postData = {
+			"token" : token,
+			"channel" : channel,
+			"count" : 1000,
+			"inclusive" : 1
+		};
+		if(date != null){
+			postData["latest"] = date;
+		}
 		$.ajax({
 			"url" : "https://slack.com/api/groups.history",
 			"method" : "POST",
-			"data" : {
-				"token" : token,
-				"channel" : channel,
-				"count" : 100,
-				"inclusive" : 1,
-				"latest" : date
-			},
+			"data" : postData,
 			success : function(data) {
-				if (data.messages.length == 0) {
+				if (data.messages.length <= 1) {
 					callback(messages);
 				} else {
 					messages = messages.concat(data.messages);
